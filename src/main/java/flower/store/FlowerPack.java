@@ -1,14 +1,18 @@
 package flower.store;
 import lombok.Getter;
-import lombok.Setter;
 
-@Setter
+
 @Getter
 public class FlowerPack {
-    private Flower flower;
+    private final Flower flower;
     private int quantity;
-    FlowerPack(Flower flower, int quantity){
-        setFlower(flower);
-        setQuantity(quantity);
+    private double price;
+    FlowerPack(Flower flower1, int quantity1){
+        flower=flower1;
+        quantity=quantity1;
+        price=flower.getPrice()*quantity;
+    }
+    public boolean equals(Flower obj) {
+        return flower.equals(obj);
     }
 }
